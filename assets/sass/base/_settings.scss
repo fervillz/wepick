@@ -1,0 +1,59 @@
+// Global settings
+$global-layout-gutter: 20px;
+$global-font-size: 16px;
+$global-width: 1200px;
+
+
+// Standart set media queries
+$breakpoint-mobile: 480px;
+$breakpoint-small: 	640px;
+$breakpoint-medium: 1024px;
+$breakpoint-large: 	1140px;
+
+
+// Layout
+$layout-header-height: 70px;
+
+// Colors:
+$color-green: #89be36;
+$color-blue: #2866ca;
+$color-purple: #7f6fb6;
+$color-cyan: #0ccaca;
+$color-teal: #394857;
+$color-teal-darker: #304254;
+$color-orange: #ff4e00;
+$color-pink: #e986b1;
+$color-black: #171717;
+$color-silver: #838383;
+$color-silver-light: #d4d4d4;
+$color-platinum: #f7f7f7;
+
+$color-primary: $color-cyan;		// Navy blue
+$color-primary-dark: $color-teal;
+$color-primary-darker: $color-teal-darker;	// Navy blue
+$color-secondary: $color-green; 	// Blue
+$color-accent: $color-orange;		// Orange
+
+// Fonts
+$font-serif: Georgia, "Times New Roman", serif;
+$font-sans: 'Poppins', sans-serif;
+$font-heading: 'Poppins', sans-serif;
+
+
+
+
+// Some elements must have max-width for mobile view.
+$mobile-layout-width-limit: 80vw;
+
+// Layout
+$layout-header-height: 90px;
+
+$font-size-xs: 12px;
+$font-size-s: 14px;
+$font-size-m: 16px;
+$font-size-l: 18px;
+$font-size-xl: 22px;
+
+// Inputs
+$input-global-padding: 13px 40px;
+$input-global-radius: 100px;

@@ -1,0 +1,183 @@
+.button,
+.btn {
+	border: 2px solid white;
+	padding: $input-global-padding;
+	border-radius: $input-global-radius;
+	font-weight: bold;
+	display: inline-block;
+	transition: 0.3s;
+	text-transform: uppercase;
+
+	&.sporting-codes {
+		border-radius: 3px;
+		text-transform: capitalize;
+		font-size: $font-size-l;
+		font-weight: normal;
+		box-shadow: 0 2px 2px 0 rgba(0,0,0,.09);
+		border: none;
+		background: #fff;
+
+		.fa {
+			margin-left: 0;
+			margin-right: 25px; 
+		}
+
+		&:before {
+			display: none;
+		}
+
+		&:focus {
+			outline: none;
+			border-color: $color-primary;
+			color: #fff;
+
+			.fa {
+				color: #fff;
+			}
+		}
+
+		&:hover {
+			transition: 0.1s;
+			background: $color-primary;
+			color: #fff;
+
+			.fa {
+				color: #fff;
+			}
+		}
+	}
+
+	&:active {
+		transition: 0.1s;
+		transform: scale(0.9);
+		outline: none;
+	}
+
+	&:focus {
+		outline: none;
+		border-color: $color-primary;
+	}
+
+	&:hover {
+		transition: 0.1s;
+	}
+
+	.fa {
+		margin-left: 35px;
+	}
+
+	&.primary {
+		background: $color-primary;
+		border: 2px solid $color-primary;
+		color: white;
+
+		&:hover {
+			background: lighten($color-primary, 5%);
+		}
+
+		&.glass {
+			background: transparent;
+			color: #fff;
+		}
+
+		&.border-primary {
+			color: #fff;
+		}
+
+		&.glass:hover {
+			border-color: lighten($color-primary, 5%);
+			background: $color-primary;
+		}
+	}
+
+	&.accent {
+		background: $color-accent;
+		border: 2px solid $color-accent;
+		color: white;
+
+		&:hover {
+			background: lighten($color-accent, 5%); 
+		}
+
+		&.glass {
+			background: transparent;
+			color: $color-accent;
+		}
+
+		&.glass:hover {
+			border-color: lighten($color-accent, 5%);
+			background: white;
+		}
+	}
+
+	&.big {
+		font-size: $font-size-m;
+	}
+}
+
+.button-group {
+	&.center {
+		margin-left: auto;
+		margin-right: auto;
+		text-align: center;
+	}
+
+	&.glass {
+		&.white {
+			color: white;
+
+			.button {
+				color: white;
+			}
+
+			.button:hover {
+				color: #333;
+				background: white;
+			}
+
+			.button:active,
+			.button:focus {
+				transform: none;
+				border-color: white;
+			}
+		}
+
+		.button {
+			background: none;
+			color: #333;
+			padding-left: 30px;
+			padding-right: 30px;
+		}
+	}
+
+	.button {
+		margin-right: -5px;
+		border-radius: 0;
+		border-right: none;
+
+		&:first-child {
+			border-top-left-radius: 3px;
+			border-bottom-left-radius: 3px;
+		}
+
+		&:last-child {
+			border-right: 2px solid white;
+			border-top-right-radius: 3px;
+			border-bottom-right-radius: 3px;
+		}
+	}
+
+	@media (max-width: $breakpoint-small) {
+		.button {
+			display: block;
+			margin-bottom: 2px;
+			margin: 5px 0;
+			border: 2px solid white;
+		}
+
+		.button:first-child,
+		.button:last-child {
+			border-radius: 3px;
+		}
+	}
+}

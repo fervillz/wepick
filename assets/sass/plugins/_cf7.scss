@@ -1,0 +1,83 @@
+.wpcf7 {
+	.cf7-submit.button {
+		padding: 0;		
+		width: 200px;
+		margin: 57px auto auto;
+		display: inherit;
+
+		.ajax-loader {
+			display: none;
+		}
+
+		.fa {
+			margin-left: 0;
+			margin-right: 35px;
+		}
+	}
+
+	.wpcf7-not-valid-tip {
+		display: none;
+	}
+
+	input[type="submit"] {
+		border-radius: $input-global-radius;
+		background: transparent;
+		border: none;
+		color: #fff;
+		margin-bottom: 0;
+		width: auto;
+		font-weight: bold;
+		text-transform: uppercase;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.wpcf7-response-output {
+		position: fixed;
+		top: 0;
+		left: 0;
+		padding: 29px 40px;
+		font-size: $font-size-xl;
+		text-align: center;
+		width: 100%;
+		margin: 0;
+		border: none;
+		color: #fff;
+		transform: translateY(150px);
+		transition: 200ms;
+		pointer-events: none;
+		animation-name: fadeout;
+		animation-duration: 4s;
+		animation-iteration-count: 1;
+		opacity: 0;
+
+		&.wpcf7-validation-errors {
+			background: #fd8b8b;
+			transform: translateY(0);
+			transition: 200ms;
+		}
+
+		&.wpcf7-mail-sent-ng {
+			background: #c1dca4;
+			transform: translateY(0);
+			transition: 200ms;
+			opacity: 1;
+			color: #585858;
+		}
+
+		.admin-bar & {
+			top: 32px;
+		}
+	}
+}
+
+/* Standard syntax */
+@keyframes fadeout {
+	0%   {opacity: 1;}
+	25%  {opacity: 1;}
+	50%  {opacity: 1;}
+	75%  {opacity: 1;}
+	100% {opacity: 0;}
+}

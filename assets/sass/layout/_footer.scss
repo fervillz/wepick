@@ -1,0 +1,19 @@
+.site-footer {
+	text-align: center;
+	color: #fff;
+	line-height: 2em;
+	font-size: $font-size-m;
+
+	a {
+		color: #fff;
+	}
+
+	&.section-fullwdith {
+		padding: 30px 0;
+	}
+
+	.fa {
+		font-size: 24px;
+		margin: 5px;
+	}
+}

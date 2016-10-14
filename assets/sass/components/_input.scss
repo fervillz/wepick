@@ -1,0 +1,33 @@
+input,
+select,
+textarea {
+	border: 2px solid white;
+	padding: $input-global-padding;
+	border-radius: $input-global-radius;
+	font-weight: bold;
+	display: inline-block;
+	transition: 0.3s;
+	text-transform: uppercase;
+	background: #eaeaea;
+	text-transform: none;
+	font-weight: normal;
+	color: #2c3d4d;
+	width: 100%;
+	font-family: inherit;
+	max-width: 100%;
+	max-height: 188px;
+
+	.wpcf7 & {
+		border-radius: 3px;
+		margin-bottom: 20px;
+		border: none;
+
+		&.wpcf7-not-valid {
+			box-shadow: 0 0 3px 0 red;
+		}
+	}
+
+	&.focus {
+		border: 2px solid $color-primary;
+	}
+}

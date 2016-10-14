@@ -1,0 +1,178 @@
+.section-fullwdith {
+	padding: 110px 0;
+	color: #404040;
+
+	&.darker {
+		color: #fff;
+		background-color: $color-primary-darker;
+	}
+
+	&.dark {
+		color: #fff;
+		background-color: $color-primary-dark;
+
+		&:before {
+			content: '';
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: $color-primary-dark;
+		}
+	}
+}
+
+.section-sporting-codes {
+	background: #f9f9f9;
+
+	.fa {
+		color: #89be36;
+	}
+}
+
+.section-header {
+	text-align: center;	
+	margin-bottom: 75px;
+
+	.section-title {
+		text-transform: uppercase;
+	}
+
+	.subtitle {
+		font-size: $font-size-l;
+		margin-top: 12px;
+		margin-bottom: 37px;
+	}
+
+	.separator {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		.line {
+			max-width: 75px;
+			width: 100%;
+			height: 5px;
+			background: #dfdfdf;
+		}
+
+		img {
+			max-width: 32px;
+			margin: 0 14px;
+		}
+	}
+}
+
+.section-sporting-codes {
+	padding-top: 0;
+}
+
+.sporting-codes-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	margin: -12px;
+
+	.sporting-item {
+		flex: 1 1 calc(33.33% - 24px);
+		margin: 7px 12px;
+		cursor: pointer;
+
+		@media ( max-width: $breakpoint-small ) {
+			flex: 1 1 calc(50% - 24px);
+		}
+
+		@media ( max-width: $breakpoint-mobile ) {
+			flex: 1 1 100%;
+		}
+	}
+}
+
+.section-features {
+	.section-content {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+	}
+
+	.feature-thumbnail {
+		flex: 1 1 353px;
+		margin-right: 100px;
+	}
+
+	.features-wrapper {
+		flex: 1 1 calc(100% - 500px);
+		color: #2c3d4d;
+		font-size: $font-size-l;
+	}
+}
+
+.section-downloads {
+	background-image: url(../images/download-bg.png);
+	background-attachment: fixed;
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba($color-primary-darker,.9);
+		pointer-events: none;
+	}
+
+	.section-header {
+		position: relative;
+	}
+
+	.section-content {
+		text-align: center;
+		position: relative;
+	}
+}
+
+.section-content {
+	.subtext {
+		font-size: 14px;
+		text-transform: uppercase;
+		margin-top: 20px;
+	}
+}
+
+.section-newsletter {
+	background-image: url(../images/newsletter-bg.jpg);
+	text-align: center;
+	position: relative;
+
+	&.dark:before {
+		background-color: rgba($color-primary-dark, .9);
+	}
+
+	.section-header {
+		position: relative;	
+		margin-bottom: 60px;	
+	}
+
+	.newsletter-wrapper {
+		position: relative;
+
+		input {
+			display: block;
+			width: 100%;
+
+			&:first-child {
+				margin-bottom: 30px;
+			}
+		}
+	}
+}
+
+.section-contacts,
+.section-how-it-works {	
+	background-color: #f9f9f9;
+}
+
+
