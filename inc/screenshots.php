@@ -1,13 +1,13 @@
 <?php 
 
 // Register Custom Post Type
-function function_how_it_work() {
+function function_screenshots() {
 
 	$labels = array(
-		'name'                  => _x( 'How It Works', 'Post Type General Name', 'wepick' ),
-		'singular_name'         => _x( 'How It Work', 'Post Type Singular Name', 'wepick' ),
-		'menu_name'             => __( 'How It Works', 'wepick' ),
-		'name_admin_bar'        => __( 'How It Work', 'wepick' ),
+		'name'                  => _x( 'Screenshots', 'Post Type General Name', 'wepick' ),
+		'singular_name'         => _x( 'Screenshot', 'Post Type Singular Name', 'wepick' ),
+		'menu_name'             => __( 'Screenshots', 'wepick' ),
+		'name_admin_bar'        => __( 'Screenshot', 'wepick' ),
 		'archives'              => __( 'Item Archives', 'wepick' ),
 		'parent_item_colon'     => __( 'Parent Item:', 'wepick' ),
 		'all_items'             => __( 'All Items', 'wepick' ),
@@ -31,11 +31,11 @@ function function_how_it_work() {
 		'filter_items_list'     => __( 'Filter items list', 'wepick' ),
 	);
 	$args = array(
-		'label'                 => __( 'How It Work', 'wepick' ),
-		'description'           => __( 'How It Work Description', 'wepick' ),
+		'label'                 => __( 'Screenshot', 'wepick' ),
+		'description'           => __( 'Screenshot Description', 'wepick' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'excerpt', 'thumbnail', ),
-		'hierarchical'          => true,
+		'supports'              => array( 'title', 'thumbnail', ),
+		'hierarchical'          => false,
 		'public'                => true,
 		'show_ui'               => true,
 		'show_in_menu'          => true,
@@ -48,7 +48,9 @@ function function_how_it_work() {
 		'publicly_queryable'    => true,
 		'capability_type'       => 'page',
 	);
-	register_post_type( 'how_it_work', $args );
+	register_post_type( 'screenshots', $args );
 
 }
-add_action( 'init', 'function_how_it_work', 0 ); ?>
+add_action( 'init', 'function_screenshots', 0 );
+
+ ?>

@@ -5,6 +5,11 @@
 		margin: 57px auto auto;
 		display: inherit;
 
+		.section-newsletter & {
+			width: 230px;
+			margin-top: 20px;
+		}
+
 		.ajax-loader {
 			display: none;
 		}
@@ -52,6 +57,7 @@
 		animation-duration: 4s;
 		animation-iteration-count: 1;
 		opacity: 0;
+		z-index: 999;
 
 		&.wpcf7-validation-errors {
 			background: #fd8b8b;

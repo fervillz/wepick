@@ -1,9 +1,17 @@
-<section class="section-fullwdith section-downloads darker">
+<?php 
+
+$wepick_settings_options_how = get_option( 'wepick_settings_option_how' ); // Array of All Options
+$download_title = $wepick_settings_options_how['download_title'];
+$download_subtitle = $wepick_settings_options_how['download_subtitle'];
+
+?>
+
+<section id="section-downloads" class="section-fullwdith section-downloads darker">
 	<div class="row">
 		<div class="column small-12">
 			<div class="section-header alt">
-				<h2 class="section-title">Tipp with your friends ort tipp against the general public!</h2><!-- .section-title -->
-				<div class="subtitle">It takes no time to create a Comp and it's even quicker to join a comp. </div><!-- .subtitle -->				
+				<h2 class="section-title"><?php echo $download_title; ?></h2><!-- .section-title -->
+				<div class="subtitle"><?php echo $download_subtitle; ?></div><!-- .subtitle -->	
 			</div><!-- .section-header -->
 
 			<div class="section-content">

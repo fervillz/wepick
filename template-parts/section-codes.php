@@ -2,16 +2,16 @@
 
 $wepick_settings_options_sport = get_option( 'wepick_settings_option_sport' ); // Array of All Options
 $sport_codes = $wepick_settings_options_sport['sport_codes'];
-
+$sport_title = $wepick_settings_options_sport['sport_title'];
+$sport_subtitle = $wepick_settings_options_sport['sport_subtitle'];
   ?>
 
-<section class="section-fullwdith section-sporting-codes">
+<section id="section-sporting-codes" class="section-fullwdith section-sporting-codes">
 	<div class="row">
 		<div class="column small-12">
 			<div class="section-header">
-				<h2 class="section-title">Sporting codes</h2><!-- .section-title -->
-				<div class="subtitle">Sporting codes you can tipp on include the following:
-</div><!-- .subtitle -->
+				<h2 class="section-title"><?php echo $sport_title; ?></h2><!-- .section-title -->
+				<div class="subtitle"><?php echo $sport_subtitle; ?></div><!-- .subtitle -->
 				<div class="separator">
 				<div class="line"></div><!-- .sport -->
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/nfl-logo.png" alt="" />

@@ -57,6 +57,8 @@ body.is-menu-opened {
  */
 .main-navigation {
 	display: inline-block;
+	text-align: right;
+	width: 100%;
 
 	.menu-toggle {
 		display: inline-block;
@@ -76,14 +78,15 @@ body.is-menu-opened {
 		display: inline-block;
 		position: relative;
 		margin-right: $menu-item-spacing;
-		font-weight: $menu-item-weight;
 
 		&:last-of-type {
 			margin-right: 0;
 		}
 
 		a {
-			color: $menu-item-color;
+			color: #fff;
+			font-weight: normal;
+			font-size: $font-size-m;
 		}
 	}
 	
@@ -192,7 +195,7 @@ body.is-menu-opened {
 	}
 
 	.menu-item:nth-last-child(-n+3) .sub-menu {
-	    right: 0;
+		right: 0;
 		left: auto;
 
 		.sub-menu {
@@ -270,8 +273,8 @@ body.is-menu-opened {
 		cursor: pointer;
 
 		padding: 4px;
-	    line-height: $menu-dropdown-arrow-line-height;
-	    font-size: $menu-dropdown-arrow-size;
+		line-height: $menu-dropdown-arrow-line-height;
+		font-size: $menu-dropdown-arrow-size;
 
 		// Disable select while clicking
 		&, & i {

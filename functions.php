@@ -43,6 +43,11 @@ require get_template_directory() . '/inc/theme-options.php';
  */
 require get_template_directory() . '/inc/how-it-works.php';
 
+/**
+ * Post type how it works file.
+ */
+require get_template_directory() . '/inc/screenshots.php';
+
 
 if ( ! function_exists( 'wepick_setup' ) ) :
 /**
@@ -82,6 +87,7 @@ function wepick_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'wepick' ),
+		'float_menu' => esc_html__( 'Floating Menu', 'wepick' ),
 	) );
 
 	/*

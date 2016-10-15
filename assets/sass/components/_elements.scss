@@ -103,7 +103,30 @@ ul {
 	}
 
 	.tab-screen {
-		flex: 0 1 301px;
+		flex: 0 1 350px;
 		align-self: flex-start;
+		position: relative;
+
+		img {
+			position: relative;
+			z-index: 2;
+			pointer-events: none;
+		}
+
+		.how-screen {
+			position: absolute;
+			width: calc(100% - 48px);
+			height: calc(100% - 187px);
+			top: 0;
+			left: 0;
+			margin: 84px 30px 50px;
+			z-index: 1;
+			overflow-y: scroll;
+			display: none;
+
+			&.active {
+				display: block;
+			}
+		}
 	}
 }

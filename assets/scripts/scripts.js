@@ -30,18 +30,23 @@ jQuery( document ).ready( function ( $ ) {
 		items: 4,
 		stagePadding: 0,
 	});
-    
-    var href;
 
-    $('.how-nav').on('click', function(event) {
-    	event.preventDefault();
-    	/* Act on the event */
-    	$('.how-nav').removeClass('active');
-    	$(this).addClass('active');
-    	href = $(this).attr('href');
+	$('a[href*=#]').on('click', function(event){     
+	    event.preventDefault();
+	    $('html,body').animate({scrollTop:$(this.hash).offset().top}, 300);
+	});
+	
+	var href;
+	$('.how-nav').on('click', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		$('.how-nav').removeClass('active');
+		$(this).addClass('active');
+		href = $(this).attr('href');
 
-    	$('.hows').removeClass('active');
-    	$(href).addClass('active');
-    });
-
+		$('.hows').removeClass('active');
+		$(href).addClass('active');
+		$('screen-'+href).addClass('active');
+		console.log($('screen-'+href));
+	});
 });

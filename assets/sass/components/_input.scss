@@ -27,6 +27,15 @@ textarea {
 		}
 	}
 
+	.section-newsletter .wpcf7 & {
+		padding: $input-global-padding;
+		border-radius: $input-global-radius;
+
+		&.wpcf7-not-valid {
+			box-shadow: 0 0 3px 0 red;
+		}
+	}
+
 	&.focus {
 		border: 2px solid $color-primary;
 	}

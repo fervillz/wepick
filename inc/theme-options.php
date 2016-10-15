@@ -3,11 +3,12 @@
 class wepickSettings {
 	private $wepick_settings_options;
 	private $wepick_settings_options_contact;
-	private $wepick_settings_options_social;
 
 	private $wepick_settings_options_hero;
 	private $wepick_settings_options_sport;
-	private $wepick_settings_options_features;
+	private $wepick_settings_options_features;	
+	private $wepick_settings_options_how;	
+	private $wepick_settings_options_social;
 
 	public function __construct() {
 		add_action( 'admin_menu', array( $this, 'wepick_settings_add_plugin_page' ) );
@@ -36,11 +37,12 @@ class wepickSettings {
 
 		$this->wepick_settings_options_features = get_option( 'wepick_settings_option_features' );
 
+		$this->wepick_settings_options_how = get_option( 'wepick_settings_option_how' );
+
+		$this->wepick_settings_options_social = get_option( 'wepick_settings_option_social' );
 		//old bewlow
 
-		$this->wepick_settings_options_contact = get_option( 'wepick_settings_option_contact' );
-
-		$this->wepick_settings_options_social = get_option( 'wepick_settings_option_social' ); ?>
+		$this->wepick_settings_options_contact = get_option( 'wepick_settings_option_contact' ); ?>
 
 		
 
@@ -58,7 +60,11 @@ class wepickSettings {
 			    <a href="?page=wepick-settings&tab=general_options" class="nav-tab <?php echo $active_tab == 'general_options' ? 'nav-tab-active' : ''; ?>">General Options</a>
 			    <a href="?page=wepick-settings&tab=hero_options" class="nav-tab <?php echo $active_tab == 'hero_options' ? 'nav-tab-active' : ''; ?>">Hero Section</a>
 			    <a href="?page=wepick-settings&tab=sport_options" class="nav-tab <?php echo $active_tab == 'sport_options' ? 'nav-tab-active' : ''; ?>">Sport Codes Section</a>	
-			     <a href="?page=wepick-settings&tab=features_options" class="nav-tab <?php echo $active_tab == 'features_options' ? 'nav-tab-active' : ''; ?>">Features Section</a>	
+			    <a href="?page=wepick-settings&tab=features_options" class="nav-tab <?php echo $active_tab == 'features_options' ? 'nav-tab-active' : ''; ?>">Features Section</a>
+			    <a href="?page=wepick-settings&tab=how_options" class="nav-tab <?php echo $active_tab == 'how_options' ? 'nav-tab-active' : ''; ?>">Other Section Headings</a>	
+
+
+			    <a href="?page=wepick-settings&tab=social_options" class="nav-tab <?php echo $active_tab == 'social_options' ? 'nav-tab-active' : ''; ?>">Social Section</a>	
 			</h2>
 
 			<form method="post" action="options.php">
@@ -84,6 +90,12 @@ class wepickSettings {
 		            settings_fields( 'wepick_settings_features_options' );
 					do_settings_sections( 'wepick_settings_features_options' );
 		        } 
+
+		        elseif ( $active_tab == 'how_options' ) {
+		            settings_fields( 'wepick_settings_how_options' );
+					do_settings_sections( 'wepick_settings_how_options' );
+		        } 
+
 
 		        elseif ( $active_tab == 'social_options' ) {
 		            settings_fields( 'wepick_settings_social_options' );
@@ -120,23 +132,6 @@ class wepickSettings {
 		);
 
 		add_settings_field(
-			'service_area_5', // id
-			'Service Areas', // title
-			array( $this, 'service_area_5_callback' ), // callback
-			'wepick_settings_general_options', // page
-			'wepick_settings_general_options' // section
-		);
-
-
-		add_settings_field(
-			'header_cta_5', // id
-			'Header CTA URL', // title
-			array( $this, 'header_cta_5_callback' ), // callback
-			'wepick_settings_general_options', // page
-			'wepick_settings_general_options' // section
-		);
-
-		add_settings_field(
 			'terms_of_use_5', // id
 			'Terms of Use', // title
 			array( $this, 'terms_of_use_5_callback' ), // callback
@@ -152,30 +147,13 @@ class wepickSettings {
 			'wepick_settings_general_options' // section
 		);		
 
-		add_settings_field(
-			'blog_excerpt_10', // id
-			'Blog Excerpt Count', // title
-			array( $this, 'blog_excerpt_10_callback' ), // callback
-			'wepick_settings_general_options', // page
-			'wepick_settings_general_options' // section
-		);
-
-		add_settings_field(
+				add_settings_field(
 			'Copyright_0', // id
 			'Copyright text', // title
 			array( $this, 'Copyright_0_callback' ), // callback
 			'wepick_settings_general_options', // page
 			'wepick_settings_general_options' // section
 		);
-
-		add_settings_field(
-			'woo_featured_0', // id
-			'Product Count', // title
-			array( $this, 'woo_featured_0_callback' ), // callback
-			'wepick_settings_general_options', // page
-			'wepick_settings_general_options' // section
-		);
-		
 
 		//end general
 		
@@ -389,8 +367,16 @@ class wepickSettings {
 		);
 
 		add_settings_field(
+			'header_sport', // id
+			'Headings', // title
+			array( $this, 'header_sporting_codes_callback' ), // callback
+			'wepick_settings_sport_options', // page
+			'wepick_settings_sport_options' // section
+		);
+
+		add_settings_field(
 			'sporting_codes_items', // id
-			'Codes', // title
+			'Codes Lists', // title
 			array( $this, 'sporting_codes_items_callback' ), // callback
 			'wepick_settings_sport_options', // page
 			'wepick_settings_sport_options' // section
@@ -414,15 +400,79 @@ class wepickSettings {
 		);
 
 		add_settings_field(
+			'header_features', // id
+			'Headings', // title
+			array( $this, 'header_features_callback' ), // callback
+			'wepick_settings_features_options', // page
+			'wepick_settings_features_options' // section
+		);
+
+		add_settings_field(
 			'sporting_codes_items', // id
-			'Codes', // title
+			'Feature List', // title
 			array( $this, 'features_items_callback' ), // callback
 			'wepick_settings_features_options', // page
 			'wepick_settings_features_options' // section
 		);
 
 		//end features
+		
+		//How it works Options
+		register_setting(
+			'wepick_settings_how_options', // option_group
+			'wepick_settings_option_how', // option_name
+			array( $this, 'wepick_settings_sanitize' ) // sanitize_callback
+		);
 
+		add_settings_section(
+			'wepick_settings_how_options', // id
+			'Other Section Headings', // title
+			array( $this, 'wepick_settings_section_how_callback' ), // callback
+			'wepick_settings_how_options' // page
+		);
+
+		add_settings_field(
+			'header_hows', // id
+			'Steps Headings', // title
+			array( $this, 'header_how_callback' ), // callback
+			'wepick_settings_how_options', // page
+			'wepick_settings_how_options' // section
+		);
+
+		add_settings_field(
+			'header_download', // id
+			'Download Headings', // title
+			array( $this, 'header_download_callback' ), // callback
+			'wepick_settings_how_options', // page
+			'wepick_settings_how_options' // section
+		);
+
+
+		add_settings_field(
+			'header_screenshot', // id
+			'Screenshots Headings', // title
+			array( $this, 'header_screenshot_callback' ), // callback
+			'wepick_settings_how_options', // page
+			'wepick_settings_how_options' // section
+		);
+
+		add_settings_field(
+			'header_contact', // id
+			'Contact Headings', // title
+			array( $this, 'header_contact_callback' ), // callback
+			'wepick_settings_how_options', // page
+			'wepick_settings_how_options' // section
+		);
+
+		add_settings_field(
+			'header_newsletter', // id
+			'Newsletter Headings', // title
+			array( $this, 'header_newsletter_callback' ), // callback
+			'wepick_settings_how_options', // page
+			'wepick_settings_how_options' // section
+		);
+		//end How it works Options
+		
 	}
 
 	public function wepick_settings_sanitize($input) {
@@ -555,6 +605,14 @@ class wepickSettings {
 			$sanitary_values['sport_codes'] = esc_textarea( $input['sport_codes'] );
 		}
 
+		if ( isset( $input['sport_title'] ) ) { 
+			$sanitary_values['sport_title'] = sanitize_text_field( $input['sport_title'] );
+		}
+
+		if ( isset( $input['sport_subtitle'] ) ) { 
+			$sanitary_values['sport_subtitle'] = sanitize_text_field( $input['sport_subtitle'] );
+		}
+
 		//end sport		
 
 		//features options	
@@ -563,7 +621,59 @@ class wepickSettings {
 			$sanitary_values['features_codes'] = esc_textarea( $input['features_codes'] );
 		}
 
+		if ( isset( $input['features_title'] ) ) { 
+			$sanitary_values['features_title'] = sanitize_text_field( $input['features_title'] );
+		}
+
+		if ( isset( $input['features_subtitle'] ) ) { 
+			$sanitary_values['features_subtitle'] = sanitize_text_field( $input['features_subtitle'] );
+		}
+
 		//end features
+		
+		//how it works options	
+
+		if ( isset( $input['how_title'] ) ) { 
+			$sanitary_values['how_title'] = sanitize_text_field( $input['how_title'] );
+		}
+
+		if ( isset( $input['how_subtitle'] ) ) { 
+			$sanitary_values['how_subtitle'] = sanitize_text_field( $input['how_subtitle'] );
+		}
+
+		if ( isset( $input['download_title'] ) ) { 
+			$sanitary_values['download_title'] = sanitize_text_field( $input['download_title'] );
+		}
+
+		if ( isset( $input['download_subtitle'] ) ) { 
+			$sanitary_values['download_subtitle'] = sanitize_text_field( $input['download_subtitle'] );
+		}
+
+		if ( isset( $input['screenshot_title'] ) ) { 
+			$sanitary_values['screenshot_title'] = sanitize_text_field( $input['screenshot_title'] );
+		}
+
+		if ( isset( $input['screenshot_subtitle'] ) ) { 
+			$sanitary_values['screenshot_subtitle'] = sanitize_text_field( $input['screenshot_subtitle'] );
+		}
+
+		if ( isset( $input['contact_title'] ) ) { 
+			$sanitary_values['contact_title'] = sanitize_text_field( $input['contact_title'] );
+		}
+
+		if ( isset( $input['contact_subtitle'] ) ) { 
+			$sanitary_values['contact_subtitle'] = sanitize_text_field( $input['contact_subtitle'] );
+		}
+
+		if ( isset( $input['newsletter_title'] ) ) { 
+			$sanitary_values['newsletter_title'] = sanitize_text_field( $input['newsletter_title'] );
+		}
+
+		if ( isset( $input['newsletter_subtitle'] ) ) { 
+			$sanitary_values['newsletter_subtitle'] = sanitize_text_field( $input['newsletter_subtitle'] );
+		}
+
+		//end how it works
 
 
 
@@ -589,6 +699,12 @@ class wepickSettings {
 	public function wepick_settings_section_features_callback() {
 		echo '<p>Add all available features codes below. Each line count as one</p>';
 	}
+
+	public function wepick_settings_section_how_callback() {
+		echo '<p>Add the title and subtitle</p>';
+	}
+
+	
 
 	public function wepick_settings_section_social_callback() {
 		echo '<p>Provide the URL to the social networks you\'d like to display.</p>';
@@ -660,20 +776,6 @@ class wepickSettings {
 		);
 	}
 
-	public function header_cta_5_callback() {
-		printf(
-			'<input class="widefat" type="url" name="wepick_settings_option_general[header_cta_5]" id="header_cta_5" value="%s">',
-			isset( $this->wepick_settings_options['header_cta_5'] ) ? esc_attr( $this->wepick_settings_options['header_cta_5']) : ''
-		);
-	}
-
-	public function service_area_5_callback() {
-		printf(
-			'<input class="widefat" type="text" name="wepick_settings_option_general[service_area_5]" id="service_area_5" value="%s">',
-			isset( $this->wepick_settings_options['service_area_5'] ) ? esc_attr( $this->wepick_settings_options['service_area_5']) : ''
-		);
-	}
-
 	public function privacy_policy_6_callback() {
 		printf(
 			'<input class="widefat" type="url" name="wepick_settings_option_general[privacy_policy_6]" id="privacy_policy_6" value="%s">',
@@ -742,24 +844,11 @@ class wepickSettings {
 	//End Contact
 
 	//general
-	public function blog_excerpt_10_callback() {
-		printf(
-			'<input class="widefat" type="number" name="wepick_settings_option_general[blog_excerpt_10]" id="blog_excerpt_10" value="%s">',
-			isset( $this->wepick_settings_options['blog_excerpt_10'] ) ? esc_attr( $this->wepick_settings_options['blog_excerpt_10']) : ''
-		);
-	}
 	public function Copyright_0_callback() {
 		printf(
 			'<textarea class="large-text" rows="5" name="wepick_settings_option_general[Copyright_0]" id="Copyright_0">%s</textarea>',
 			isset( $this->wepick_settings_options['Copyright_0'] ) ? esc_attr( $this->wepick_settings_options['Copyright_0']) : ''
 		);
-	}
-	public function woo_featured_0_callback() {
-		printf(
-			'<input class="widefat" type="number" name="wepick_settings_option_general[woo_featured_0]" id="woo_featured_0" value="%s">',
-			isset( $this->wepick_settings_options['woo_featured_0'] ) ? esc_attr( $this->wepick_settings_options['woo_featured_0']) : ''
-		);
-		echo ( '<small>Number of products featured in heropage.</small>' );
 	}
 
 	
@@ -767,6 +856,7 @@ class wepickSettings {
 	
 
 	//Hero
+
 	public function hero_callback() {		
 		
 		printf(
@@ -774,7 +864,6 @@ class wepickSettings {
 			isset( $this->wepick_settings_options_hero['hero_section'] ) ? esc_attr( $this->wepick_settings_options_hero['hero_section']) : ''
 		);
 	}
-
 
 	public function cta_hero_callback() {	
 
@@ -811,6 +900,22 @@ class wepickSettings {
 
 	//start sporting codes
 	
+	public function header_sporting_codes_callback() {
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_sport[sport_title]" id="sport_title" value="%s">',
+			isset( $this->wepick_settings_options_sport['sport_title'] ) ? esc_attr( $this->wepick_settings_options_sport['sport_title']) : ''
+		);
+		echo "<br/>";
+		echo "<small/>Section Title</small>";
+		echo "<br/><br/>";
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_sport[sport_subtitle]" id="sport_subtitle" value="%s">',
+			isset( $this->wepick_settings_options_sport['sport_subtitle'] ) ? esc_attr( $this->wepick_settings_options_sport['sport_subtitle']) : ''
+		);
+
+		echo "<small/>Section Sub-Title</small>";
+	}
+	
 	public function sporting_codes_items_callback() {		
 		
 		printf(
@@ -823,6 +928,22 @@ class wepickSettings {
 	
 
 	//start sporting codes
+	//
+	public function header_features_callback() {
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_features[features_title]" id="features_title" value="%s">',
+			isset( $this->wepick_settings_options_features['features_title'] ) ? esc_attr( $this->wepick_settings_options_features['features_title']) : ''
+		);
+		echo "<br/>";
+		echo "<small/>Section Title</small>";
+		echo "<br/><br/>";
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_features[features_subtitle]" id="features_subtitle" value="%s">',
+			isset( $this->wepick_settings_options_features['features_subtitle'] ) ? esc_attr( $this->wepick_settings_options_features['features_subtitle']) : ''
+		);
+
+		echo "<small/>Section Sub-Title</small>";
+	}
 	
 	public function features_items_callback() {		
 		
@@ -833,6 +954,90 @@ class wepickSettings {
 	}
 
 	//end sporting codes
+
+	//start how it works
+	
+	public function header_how_callback() {
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[how_title]" id="how_title" value="%s">',
+			isset( $this->wepick_settings_options_how['how_title'] ) ? esc_attr( $this->wepick_settings_options_how['how_title']) : ''
+		);
+		echo "<br/>";
+		echo "<small/>Section Title</small>";
+		echo "<br/><br/>";
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[how_subtitle]" id="how_subtitle" value="%s">',
+			isset( $this->wepick_settings_options_how['how_subtitle'] ) ? esc_attr( $this->wepick_settings_options_how['how_subtitle']) : ''
+		);
+
+		echo "<small/>Section Sub-Title</small>";
+	}
+
+	public function header_download_callback() {
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[download_title]" id="download_title" value="%s">',
+			isset( $this->wepick_settings_options_how['download_title'] ) ? esc_attr( $this->wepick_settings_options_how['download_title']) : ''
+		);
+		echo "<br/>";
+		echo "<small/>Section Title</small>";
+		echo "<br/><br/>";
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[download_subtitle]" id="download_subtitle" value="%s">',
+			isset( $this->wepick_settings_options_how['download_subtitle'] ) ? esc_attr( $this->wepick_settings_options_how['download_subtitle']) : ''
+		);
+
+		echo "<small/>Section Sub-Title</small>";
+	}
+
+	public function header_screenshot_callback() {
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[screenshot_title]" id="screenshot_title" value="%s">',
+			isset( $this->wepick_settings_options_how['screenshot_title'] ) ? esc_attr( $this->wepick_settings_options_how['screenshot_title']) : ''
+		);
+		echo "<br/>";
+		echo "<small/>Section Title</small>";
+		echo "<br/><br/>";
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[screenshot_subtitle]" id="screenshot_subtitle" value="%s">',
+			isset( $this->wepick_settings_options_how['screenshot_subtitle'] ) ? esc_attr( $this->wepick_settings_options_how['screenshot_subtitle']) : ''
+		);
+
+		echo "<small/>Section Sub-Title</small>";
+	}
+
+	public function header_contact_callback() {
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[contact_title]" id="contact_title" value="%s">',
+			isset( $this->wepick_settings_options_how['contact_title'] ) ? esc_attr( $this->wepick_settings_options_how['contact_title']) : ''
+		);
+		echo "<br/>";
+		echo "<small/>Section Title</small>";
+		echo "<br/><br/>";
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[contact_subtitle]" id="contact_subtitle" value="%s">',
+			isset( $this->wepick_settings_options_how['contact_subtitle'] ) ? esc_attr( $this->wepick_settings_options_how['contact_subtitle']) : ''
+		);
+
+		echo "<small/>Section Sub-Title</small>";
+	}
+
+	public function header_newsletter_callback() {
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[newsletter_title]" id="newsletter_title" value="%s">',
+			isset( $this->wepick_settings_options_how['newsletter_title'] ) ? esc_attr( $this->wepick_settings_options_how['newsletter_title']) : ''
+		);
+		echo "<br/>";
+		echo "<small/>Section Title</small>";
+		echo "<br/><br/>";
+		printf(
+			'<input class="widefat" type="text" placeholder="Enter title here..." name="wepick_settings_option_how[newsletter_subtitle]" id="newsletter_subtitle" value="%s">',
+			isset( $this->wepick_settings_options_how['newsletter_subtitle'] ) ? esc_attr( $this->wepick_settings_options_how['newsletter_subtitle']) : ''
+		);
+
+		echo "<small/>Section Sub-Title</small>";
+	}
+
+	//end how it works
 
 
 
@@ -870,10 +1075,6 @@ if ( is_admin() )
  * $Copyright_0 = $wepick_settings_options['Copyright_0']; // Copyright
  * $terms_of_use_5 = $wepick_settings_options['terms_of_use_5']; // Terms of Use
  * $privacy_policy_6 = $wepick_settings_options['privacy_policy_6']; // Privacy Policy * 
- * $blog_excerpt_10 = $wepick_settings_options['blog_excerpt_10']; // Google Map
- * $service_area_5 = $wepick_settings_options['service_area_5']; // service_area_5
- * $header_cta_5 = $wepick_settings_options['header_cta_5']; // service_area_5
- * $woo_featured_0 = $wepick_settings_options['woo_featured_0']; // woo_featured_0
  *
  *
  * Hero Section 
@@ -887,12 +1088,18 @@ if ( is_admin() )
  * Sport Section 
  * $wepick_settings_options_sport = get_option( 'wepick_settings_option_sport' ); // Array of All Options
  * $sport_codes = $wepick_settings_options_sport['sport_codes'];
- *
+ * $sport_title = $wepick_settings_options_sport['sport_title'];
+ * $sport_subtitle = $wepick_settings_options_sport['sport_subtitle'];
  *
  * Features Section 
  * $wepick_settings_options_features = get_option( 'wepick_settings_option_features' ); // Array of All Options
  * $features_codes = $wepick_settings_options_features['features_codes'];
+ * $features_title = $wepick_settings_options_features['sport_title'];
+ * $features_subtitle = $wepick_settings_options_features['sport_subtitle'];
+ *  
+ * How Section 
+ * $wepick_settings_options_how = get_option( 'wepick_settings_option_how' ); // Array of All Options
+ * $how_title = $wepick_settings_options_how['how_title'];
+ * $how_subtitle = $wepick_settings_options_how['how_subtitle'];
  */
-
-
 ?>

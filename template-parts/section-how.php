@@ -1,9 +1,17 @@
-<section class="section-fullwdith section-how-it-works">
+<?php 
+
+$wepick_settings_options_how = get_option( 'wepick_settings_option_how' ); // Array of All Options
+$how_title = $wepick_settings_options_how['how_title'];
+$how_subtitle = $wepick_settings_options_how['how_subtitle'];
+
+?>
+
+<section id="section-how-it-works" class="section-fullwdith section-how-it-works">
 	<div class="row">
 		<div class="column small-12">
 			<div class="section-header">
-				<h2 class="section-title">get in touch</h2><!-- .section-title -->
-				<div class="subtitle">Enter your details propery, all fields are required</div><!-- .subtitle -->
+				<h2 class="section-title"><?php echo $how_title; ?></h2><!-- .section-title -->
+				<div class="subtitle"><?php echo $how_subtitle; ?></div><!-- .subtitle -->
 				<div class="separator">
 				<div class="line"></div><!-- .line -->
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/images/nfl-logo.png" alt="" />
@@ -13,34 +21,125 @@
 
 		  <div id="tabs" class="tab tab-wrapper vertical">
 			<ul class="tab-nav-wrapper">
-				  <li><a href="#how1" class="tab-nav how-nav active">Creating a competition </a></li>
-				  <li><a href="#how2" class="tab-nav how-nav">Searching/Joining a competition </a></li>
-				  <li><a href="#how3" class="tab-nav how-nav">Picks</a></li>
-				  <li><a href="#how4" class="tab-nav how-nav">Ladder / Scoring system</a></li>
-				  <li><a href="#how2" class="tab-nav how-nav">Prize pool and payouts </a></li>
-				  <li><a href="#how3" class="tab-nav how-nav">Betting Wallet / Account Balance </a></li>
-				  <li><a href="#how4" class="tab-nav how-nav">Friends/Profiles</a></li>
+
+					<?php 
+
+					$counter = 1;
+					// WP_Query arguments
+					$args = array (
+						'post_type'              => array( 'how_it_work' ),
+						'posts_per_page'         => '20',
+					);
+
+					// The Query
+					$query = new WP_Query( $args );
+
+					// The Loop
+					if ( $query->have_posts() ) {
+						while ( $query->have_posts() ) {
+							$query->the_post();
+							// do something
+							if ( $counter == 1) {
+								echo '<li><a href=".how'.$counter.'" class="tab-nav how-nav active">';
+							}
+							else {
+								echo '<li><a href=".how'.$counter.'" class="tab-nav how-nav">';
+							}
+							
+							the_title();
+							echo '</a></li>';
+							$counter++;
+						}
+					}
+
+					// Restore original Post Data
+					wp_reset_postdata();
+
+					?>
+
 			</ul>
-			<div id="how1" class="tab-content hows active">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non repudiandae quo delectus sunt sint ratione recusandae repellendus sit iure nemo mollitia odio facilis perferendis minus maxime quisquam, officia possimus aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non repudiandae quo delectus sunt sint ratione recusandae repellendus sit iure nemo mollitia odio facilis perferendis minus maxime quisquam, officia possimus aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non repudiandae quo delectus sunt sint ratione recusandae repellendus sit iure nemo mollitia odio facilis perferendis minus maxime quisquam, officia possimus aut.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non repudiandae quo delectus sunt sint ratione recusandae repellendus sit iure nemo mollitia odio facilis perferendis minus maxime quisquam, officia possimus aut.</p>
-			</div>
 
-			<div id="how2" class="tab-content hows">
-				<p>In order to search and join competitions you can either click on the Competition tab on the home page or Discover tab on My Competitions screen. This will display all public competitions. Private competitions require invites and invites will appear in a user my competitions section. The sorting symbol (insert sorting symbol) allows users to sort competitions based on entry price, prize pool, number of entrants and also ability to filter sporting codes.</p>
+			<?php 
 
-				<p>Competition details on a listing preview include: entry amount (insert symbol), prize pool (insert symbol) and number of entrants (insert Symbol). You will also see the time till first match starts (insert the clock example) and preview of sporting codes (Insert the various sport icons). Clicking on the preview tile will show the matches of the competition. </p>
-			</div>
+				$counter = 1;
+				// WP_Query arguments
+				$args = array (
+					'post_type'              => array( 'how_it_work' ),
+					'posts_per_page'         => '20',
+				);
 
-			<div id="how3" class="tab-content hows">
-				Content 3
-			</div>
+				// The Query
+				$query = new WP_Query( $args );
 
-			<div id="how4" class="tab-content hows">
-				 Content 4
-			</div>
+				// The Loop
+				if ( $query->have_posts() ) {
+
+					while ( $query->have_posts() ) {
+
+						$query->the_post();
+						// do something
+						if ( $counter == 1) {
+							echo '<div class="how'.$counter.' tab-content hows active">';
+						}
+						else {
+							echo '<div class="how'.$counter.' tab-content hows">';
+						}
+						
+						the_content();
+
+						echo '</div>';
+
+						$counter++;
+					}
+				}
+
+				// Restore original Post Data
+				wp_reset_postdata();
+
+			?>
+
 			<div class="tab-screen">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/how-screen.png" alt="" />
+				<img src="<?php echo get_template_directory_uri(); ?>/assets/images/iphone-white.png" alt="" />
+				
+				<?php 
+					$counter = 1;
+					// WP_Query arguments
+					$args = array (
+						'post_type'              => array( 'how_it_work' ),
+						'posts_per_page'         => '20',
+					);
+
+					// The Query
+					$query = new WP_Query( $args );
+
+					// The Loop
+					if ( $query->have_posts() ) {
+
+						while ( $query->have_posts() ) {
+
+							$query->the_post(); 
+
+							if ( $counter == 1) {
+								echo '<div class="how'.$counter.' how-screen hows active">';
+							}
+							else {
+								echo '<div class="how'.$counter.' how-screen hows">';
+							}
+
+							the_post_thumbnail();
+
+							echo '</div>'; $counter++;
+						}
+					}
+
+					// Restore original Post Data
+					wp_reset_postdata();
+
+				?>
+
+				
 			</div><!-- .tab-screen -->
+
 			</div>
 		</div><!-- .column small-12 -->
 	</div><!-- .row -->
