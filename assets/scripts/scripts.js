@@ -29,6 +29,21 @@ jQuery( document ).ready( function ( $ ) {
 		autoplay: false,
 		items: 4,
 		stagePadding: 0,
+		responsive:{
+	        0:{
+	            items:2,
+	            nav:true
+	        },
+	        767:{
+	            items:3,
+	            nav:false
+	        },
+	        1000:{
+	            items:4,
+	            nav:true,
+	            loop:false
+	        }
+	    }
 	});
 
 	$('a[href*=#]').on('click', function(event){     

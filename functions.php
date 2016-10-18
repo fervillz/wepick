@@ -1,6 +1,6 @@
 <?php
 /**
- * DevriX Starter functions and definitions.
+ * functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -159,7 +159,7 @@ add_action( 'widgets_init', 'wepick_widgets_init' );
 function wepick_scripts() {
 
 	// Enqueue the only styling file here that is build with Gulp
-	wp_enqueue_style( 'wepick-style', get_template_directory_uri() . '/assets/css/master.css' );
+	wp_enqueue_style( 'wepick-style', get_template_directory_uri() . '/assets/css/master.css', null, '1.0.0.2' );
 
 	// Enqueue font poppins
 	wp_enqueue_style( 'poppins', 'https://fonts.googleapis.com/css?family=Poppins:400,700' );

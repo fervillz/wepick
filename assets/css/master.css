@@ -3247,7 +3247,24 @@ hr.clear {
   z-index: 1; }
 
 .owl-carousel-screenshot {
-  margin: 0 -13px; }
+  margin: 0; }
+  .owl-carousel-screenshot .owl-controls {
+    font-size: 31px; }
+    .owl-carousel-screenshot .owl-controls .owl-prev {
+      position: absolute;
+      left: 0;
+      top: 40%;
+      margin-left: -30px; }
+    .owl-carousel-screenshot .owl-controls .owl-next {
+      position: absolute;
+      right: 0;
+      top: 40%;
+      margin-right: -30px; }
+  @media (max-width: 480px) {
+    .owl-carousel-screenshot {
+      margin: 0; }
+      .owl-carousel-screenshot .owl-controls {
+        display: none; } }
   .owl-carousel-screenshot .owl-item {
     padding: 0 13px; }
 
@@ -3355,6 +3372,13 @@ hr.clear {
   padding-bottom: 240px;
   overflow: hidden;
   background-image: url(../images/header_bg.jpg); }
+  @media (max-width: 768px) {
+    .site-header {
+      padding-bottom: 330px; } }
+  @media (max-width: 480px) {
+    .site-header {
+      padding-bottom: 65px;
+      margin-bottom: 70px; } }
   .site-header:before {
     content: '';
     width: 100%;
@@ -3375,11 +3399,20 @@ hr.clear {
     z-index: 3;
     box-shadow: 0 0 200px 0 rgba(0, 0, 0, 0.25);
     bottom: -813px; }
+    @media (max-width: 768px) {
+      .site-header:after {
+        box-shadow: none; } }
   .site-header .branding {
     position: relative; }
+    @media (max-width: 480px) {
+      .site-header .branding.branding-right {
+        display: none; } }
   .site-header .site-desc {
     line-height: 35px;
     margin-top: 30px; }
+  @media (max-width: 480px) {
+    .site-header .site-cta {
+      text-align: center; } }
   .site-header .button {
     margin-top: 60px; }
   .site-header .feature-screens {
@@ -3387,6 +3420,9 @@ hr.clear {
     text-align: right;
     max-height: 600px;
     position: relative; }
+    @media (max-width: 768px) {
+      .site-header .feature-screens {
+        margin-top: 0; } }
     .site-header .feature-screens .screens {
       max-width: 360px;
       position: absolute;
@@ -3400,13 +3436,14 @@ hr.clear {
         position: absolute;
         background-color: #304254;
         width: calc(100% - 60px);
-        height: 100%;
+        height: calc(100% - 174px);
         top: 0;
         left: 0;
         margin: 87px 27px;
         z-index: 0;
         background-position: top;
-        background-size: contain; }
+        background-size: contain;
+        background-repeat: no-repeat; }
       .site-header .feature-screens .screens:after {
         content: '';
         position: absolute;
@@ -3426,6 +3463,9 @@ hr.clear {
       z-index: 1;
       top: 0;
       margin-top: 55px; }
+      @media (max-width: 768px) {
+        .site-header .feature-screens .back-screen {
+          display: none; } }
 
 .site-branding {
   display: inline-block; }
@@ -3667,7 +3707,7 @@ hr.clear {
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px; }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .button-group .button {
     display: block;
     margin-bottom: 2px;
@@ -3746,7 +3786,7 @@ hr.clear {
             flex: 1 1 calc(33.33% - 24px);
     margin: 7px 12px;
     cursor: pointer; }
-    @media (max-width: 640px) {
+    @media (max-width: 768px) {
       .sporting-codes-wrapper .sporting-item {
         -webkit-box-flex: 1;
             -ms-flex: 1 1 calc(50% - 24px);
@@ -3772,6 +3812,9 @@ hr.clear {
       -ms-flex: 1 1 353px;
           flex: 1 1 353px;
   margin-right: 100px; }
+  @media (max-width: 768px) {
+    .section-features .feature-thumbnail {
+      display: none; } }
 
 .section-features .features-wrapper {
   -webkit-box-flex: 1;
@@ -3844,6 +3887,13 @@ ul {
   max-width: 369px;
   width: 100%;
   margin-right: 28px; }
+  @media (max-width: 768px) {
+    .tab.vertical .tab-nav-wrapper {
+      max-width: 250px; } }
+  @media (max-width: 480px) {
+    .tab.vertical .tab-nav-wrapper {
+      margin-right: 0;
+      max-width: 100%; } }
 
 .tab ul {
   margin: 0; }
@@ -3893,6 +3943,9 @@ ul {
               transform: rotateZ(45deg);
       top: 50%;
       margin-top: -10px; }
+      @media (max-width: 480px) {
+        .tab .tab-nav.active:after {
+          display: none; } }
 
 .tab .tab-content {
   padding: 50px 40px;
@@ -3903,7 +3956,9 @@ ul {
           flex: 1 1 0;
   border-radius: 3px;
   line-height: 27px;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1); }
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 669px; }
   .tab .tab-content.active {
     display: block; }
 
@@ -3914,6 +3969,9 @@ ul {
   -ms-flex-item-align: start;
       align-self: flex-start;
   position: relative; }
+  @media (max-width: 768px) {
+    .tab .tab-screen {
+      display: none; } }
   .tab .tab-screen img {
     position: relative;
     z-index: 2;
@@ -4000,9 +4058,13 @@ textarea {
   display: inline-block;
   text-align: right;
   width: 100%;
+  margin-top: 30px;
   /**
 	 * Begin the mobile menu styling.
 	 */ }
+  @media (max-width: 768px) {
+    .main-navigation {
+      display: none; } }
   .main-navigation .menu-toggle {
     display: inline-block;
     color: #333;
@@ -4023,7 +4085,7 @@ textarea {
       color: #fff;
       font-weight: normal;
       font-size: 16px; }
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     .main-navigation .menu-item {
       border-bottom: 1px solid #f0f0f0;
       margin: 0;
@@ -4048,7 +4110,7 @@ textarea {
 /**
  * Displaying the mobile menu on click.
  */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .menu-primary-container {
     display: none;
     position: absolute;
@@ -4069,7 +4131,7 @@ textarea {
 /**
  * Starts the standard desktop menu styling.
  */
-@media (min-width: 640px) {
+@media (min-width: 768px) {
   .menu-primary-container {
     display: block; }
   .main-navigation .menu-toggle {
@@ -4161,6 +4223,6 @@ textarea {
   .menu-item-has-children.is-extended .dropdown-arrow {
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg); }
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     .menu-item-has-children .dropdown-arrow {
       display: none; } }

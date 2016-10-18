@@ -26,6 +26,15 @@ ul {
 		max-width: 369px;
 		width: 100%;
 		margin-right: 28px;	
+
+		@media ( max-width: $breakpoint-small ) {
+			 max-width: 250px;
+		}
+
+		@media ( max-width: $breakpoint-mobile ) {
+			margin-right: 0;	
+			max-width: 100%;
+		}
 	}
 
 	ul {
@@ -84,6 +93,10 @@ ul {
 				transform: rotateZ(45deg);
 				top: 50%;
 				margin-top: -10px;
+
+				@media ( max-width: $breakpoint-mobile ) {
+					display: none;	
+				}
 			}
 		}
 	}
@@ -96,6 +109,8 @@ ul {
 		border-radius: 3px;
 		line-height: 27px;
 		box-shadow: 0 0 5px 0 rgba(0,0,0,.1);
+		overflow-y: auto;
+		max-height: 669px;
 
 		&.active {
 			display: block;
@@ -106,6 +121,10 @@ ul {
 		flex: 0 1 350px;
 		align-self: flex-start;
 		position: relative;
+
+		@media ( max-width: $breakpoint-small ) {
+			display: none;	
+		}
 
 		img {
 			position: relative;

@@ -65,7 +65,7 @@ $hero_app_screen_2 = $wepick_settings_options_hero['hero_app_screen_2'];
 			</div><!-- /columns -->
 		</div><!-- /row -->
 		<div class="row">
-			<div class="columns small-6">
+			<div class="columns small-12 medium-6">
 				<div class="branding branding-left">
 						<h1 class="site-logo">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/site-logo.svg" alt="" />
